@@ -1,0 +1,318 @@
+/* src/pages/Home/PolamRight.css */
+
+.polam-container {
+  display: flex;
+  height: calc(100vh - 100px);
+  gap: 20px;
+  padding: 20px;
+  background: #080815;
+  color: #fff;
+  font-family: 'Inter', sans-serif;
+  box-sizing: border-box;
+}
+
+/* ─── Sidebar & Map ─── */
+.polam-sidebar {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  min-width: 300px;
+}
+
+.map-frame {
+  flex: 1;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid rgba(123, 92, 250, 0.3);
+}
+
+.map-frame iframe { width: 100%; height: 100%; border: none; }
+
+/* ─── Active Ride Sidebar ─── */
+.sidebar-ride-box {
+  background: rgba(16, 185, 129, 0.1);
+  border: 1px solid #10b981;
+  padding: 20px;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.s-status-header { font-size: 18px; font-weight: 800; color: #10b981; }
+.s-flow { display: flex; flex-direction: column; gap: 10px; }
+.s-pnt { color: rgba(255,255,255,0.4); font-size: 14px; }
+.s-pnt.fill { color: #fff; font-weight: bold; }
+
+.s-cancel-btn {
+  background: rgba(239, 68, 68, 0.15);
+  color: #ef4444;
+  border: 1px solid #ef4444;
+  padding: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.2s;
+}
+.s-cancel-btn:hover:not(:disabled) { background: #ef4444; color: #fff; }
+.s-cancel-btn:disabled { opacity: 0.5; cursor: not-allowed; border-color: rgba(255,255,255,0.1); color: #888; }
+
+.s-final-badge {
+  background: #10b981;
+  color: #fff;
+  padding: 10px;
+  border-radius: 8px;
+  font-weight: bold;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+
+/* ─── Chat Pane ─── */
+.polam-chat-pane {
+  flex: 2;
+  background: #100e26;
+  border-radius: 16px;
+  border: 1px solid rgba(123, 92, 250, 0.2);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.p-header {
+  padding: 20px;
+  background: #0d0c1d;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  font-weight: 800;
+  font-size: 18px;
+  color: #7B5CFA;
+}
+
+.p-stream {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.p-stream::-webkit-scrollbar { width: 6px; }
+.p-stream::-webkit-scrollbar-thumb { background: rgba(123, 92, 250, 0.4); border-radius: 10px; }
+
+/* CRITICAL FIX: Stop items from collapsing when new messages are added! */
+.p-stream > div {
+  flex-shrink: 0;
+}
+
+/* ─── Chat Bubbles ─── */
+.p-bubble {
+  max-width: 75%;
+  padding: 14px 18px;
+  border-radius: 16px;
+  font-size: 15px;
+  line-height: 1.5;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.p-bubble.user {
+  align-self: flex-end;
+  background: #7B5CFA;
+  color: white;
+  border-bottom-right-radius: 4px;
+}
+
+.p-bubble.ai {
+  align-self: flex-start;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom-left-radius: 4px;
+}
+
+/* ─── Carousel & Cards ─── */
+.p-carousel {
+  display: flex;
+  gap: 15px;
+  overflow-x: auto;
+  padding-bottom: 10px;
+  align-self: flex-start;
+  max-width: 100%;
+}
+.p-carousel::-webkit-scrollbar { height: 4px; }
+.p-carousel::-webkit-scrollbar-thumb { background: #7B5CFA; border-radius: 10px; }
+
+.p-card {
+  min-width: 160px;
+  background: #1a1a2e;
+  border: 1px solid rgba(123, 92, 250, 0.4);
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.2s, border-color 0.2s;
+  display: flex;
+  flex-direction: column;
+}
+.p-card:hover {
+  transform: translateY(-3px);
+  border-color: #7B5CFA;
+  box-shadow: 0 5px 15px rgba(123, 92, 250, 0.3);
+}
+.p-img-box {
+  height: 100px;
+  width: 100%;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.p-img-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.p-card-body {
+  padding: 12px;
+  text-align: center;
+  font-size: 15px;
+  line-height: 1.4;
+  color: #fff;
+}
+.p-card-body b {
+  font-size: 16px;
+  color: #fff;
+}
+
+/* ─── Date Picker Grid ─── */
+.date-picker-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  align-self: flex-start;
+}
+.date-btn {
+  background: rgba(123, 92, 250, 0.15);
+  border: 1px solid #7B5CFA;
+  color: #fff;
+  padding: 12px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: 0.2s;
+}
+.date-btn:hover { background: #7B5CFA; }
+.date-btn span { font-weight: bold; font-size: 16px; }
+.date-btn small { font-size: 12px; opacity: 0.8; }
+
+/* ─── Radar Searching Animation ─── */
+.radar-container { align-self: flex-start; padding: 10px; }
+.radar {
+  width: 220px;
+  height: 140px;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 2px solid #7B5CFA;
+  animation: pulse 1.5s infinite;
+  background: #fff;
+}
+.radar img { width: 100%; height: 100%; object-fit: cover; }
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(123, 92, 250, 0.4); }
+  70% { box-shadow: 0 0 0 15px rgba(123, 92, 250, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(123, 92, 250, 0); }
+}
+
+/* ─── Driver UI Card ─── */
+.p-driver-ui-card {
+  align-self: flex-start;
+  background: #1a1a2e;
+  border: 1px solid #7B5CFA;
+  border-radius: 12px;
+  width: 280px;
+  overflow: hidden;
+}
+.pd-header { background: rgba(123, 92, 250, 0.2); padding: 12px 15px; font-weight: bold; display: flex; align-items: center; gap: 8px; color: #7B5CFA; }
+.pd-body { padding: 15px; }
+.pd-body h3 { margin: 0 0 5px 0; font-size: 18px; color: #fff; }
+.pd-body p { margin: 0 0 12px 0; color: #aaa; font-size: 14px; }
+.pd-plate { display: inline-block; background: #facc15; color: #000; padding: 6px 10px; border-radius: 6px; font-weight: 900; font-family: monospace; letter-spacing: 1px; }
+.pd-footer { display: flex; justify-content: space-between; padding: 12px 15px; background: rgba(0, 0, 0, 0.2); border-top: 1px solid rgba(255, 255, 255, 0.05); align-items: center; }
+.pd-call { background: #10b981; color: white; border: none; padding: 8px 16px; border-radius: 6px; cursor: pointer; display: flex; align-items: center; gap: 6px; font-weight: bold; }
+.pd-otp-box { font-size: 14px; color: #ddd; }
+.pd-otp-box b { color: #fff; font-size: 16px; }
+
+/* ─── Ticket Table ─── */
+.ticket-table-ui { align-self: flex-start; background: #fff; color: #000; border-radius: 12px; overflow: hidden; min-width: 320px; box-shadow: 0 5px 20px rgba(0,0,0,0.5); }
+.tt-h { background: #facc15; padding: 15px; font-weight: 900; font-size: 16px; display: flex; justify-content: space-between; align-items: center; }
+.dl-icon { cursor: pointer; font-size: 20px; transition: 0.2s; }
+.dl-icon:hover { transform: scale(1.1); color: #fff; }
+.ticket-table-ui table { width: 100%; border-collapse: collapse; }
+.ticket-table-ui th, .ticket-table-ui td { padding: 12px 15px; text-align: left; border-bottom: 1px solid #eee; font-size: 14px; }
+.ticket-table-ui th { background: #f8f9fa; color: #555; }
+.tt-pax-list { padding: 15px; font-size: 13px; line-height: 1.5; color: #333; }
+.tt-f { background: #111; color: #fff; padding: 12px 15px; font-size: 12px; display: flex; justify-content: space-between; }
+.tt-f span { color: #cccccc; }
+
+
+/* ─── Chat Input Bar ─── */
+.p-input-bar {
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.2);
+  display: flex;
+  gap: 12px;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.p-input-bar input {
+  flex: 1;
+  padding: 15px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.05);
+  color: white;
+  font-size: 15px;
+  outline: none;
+}
+.p-input-bar input:focus { border-color: #7B5CFA; }
+
+.p-input-bar button {
+  padding: 0 20px;
+  background: #7B5CFA;
+  border: none;
+  border-radius: 12px;
+  color: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  transition: 0.2s;
+}
+.p-input-bar button:disabled { opacity: 0.5; cursor: not-allowed; }
+
+/* ─── Modals & Overlays ─── */
+.kasu-overlay { position: fixed; inset: 0; background: rgba(0, 0, 0, 0.85); backdrop-filter: blur(5px); display: flex; align-items: center; justify-content: center; z-index: 9999; }
+.kasu-modal { background: #121225; width: 400px; border-radius: 16px; border: 1px solid #7B5CFA; overflow: hidden; box-shadow: 0 20px 50px rgba(0,0,0,0.5); }
+.kasu-modal.orange-brd { border-color: #f59e0b; }
+.orange-bg { background: rgba(245, 158, 11, 0.2) !important; color: #f59e0b !important; }
+.km-pay-btn.orange-bg { background: #f59e0b !important; color: #000 !important; }
+
+.km-h { padding: 18px 20px; background: rgba(123, 92, 250, 0.2); display: flex; justify-content: space-between; align-items: center; font-weight: bold; font-size: 16px; }
+.km-x { cursor: pointer; font-size: 20px; color: #aaa; }
+.km-x:hover { color: #fff; }
+.km-b { padding: 25px; text-align: center; }
+.km-amt { font-size: 36px; font-weight: 900; margin-bottom: 15px; color: #fff; }
+
+.km-pin-input { display: flex; align-items: center; background: rgba(0, 0, 0, 0.4); border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 12px; padding: 15px; margin: 20px 0; }
+.km-pin-input input { background: transparent; border: none; color: white; width: 100%; outline: none; text-align: center; font-size: 24px; letter-spacing: 12px; }
+
+.km-pay-btn { width: 100%; padding: 16px; background: #7B5CFA; color: white; border: none; border-radius: 12px; font-weight: bold; font-size: 16px; cursor: pointer; transition: 0.2s; }
+.km-pay-btn:hover { filter: brightness(1.1); }
+.km-f { padding: 15px; text-align: center; background: rgba(0, 0, 0, 0.3); font-size: 14px; color: #aaa; }
+.funds-popup { background: #10b981; padding: 40px; border-radius: 20px; text-align: center; color: white; width: 350px; }

@@ -1,0 +1,214 @@
+/* src/pages/Home/LearnAndEarn.css */
+.le-container {
+  display: flex; 
+  flex-direction: column; 
+  height: calc(100vh - 100px);
+  background: #080815; 
+  color: #fff; 
+  font-family: 'Inter', sans-serif;
+  border-radius: 12px; 
+  overflow: hidden; 
+  border: 1px solid rgba(0, 201, 200, 0.2);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.le-header {
+  padding: 20px 30px; 
+  background: #0d0c1d; 
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  display: flex; 
+  justify-content: space-between; 
+  align-items: center;
+}
+
+.le-header h2 {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 800;
+}
+
+.le-header h2 span {
+  color: #00C9C8;
+}
+
+.le-tabs { 
+  display: flex; 
+  gap: 15px; 
+}
+
+.le-tab {
+  background: rgba(255,255,255,0.05); 
+  border: 1px solid transparent; 
+  color: #aaa;
+  padding: 10px 20px; 
+  border-radius: 8px; 
+  cursor: pointer; 
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: 0.2s;
+}
+
+.le-tab:hover {
+  background: rgba(255,255,255,0.1);
+}
+
+.le-tab.active { 
+  background: rgba(0, 201, 200, 0.15); 
+  border-color: #00C9C8;
+  color: #fff; 
+}
+
+.le-content { 
+  padding: 30px; 
+  flex: 1; 
+  overflow-y: auto; 
+}
+
+/* --- JOB BOARD STYLES --- */
+.job-grid { 
+  display: grid; 
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); 
+  gap: 20px; 
+}
+
+.job-card {
+  background: rgba(255,255,255,0.03); 
+  padding: 25px; 
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.05); 
+  transition: 0.3s;
+  display: flex;
+  flex-direction: column;
+}
+
+.job-card:hover { 
+  border-color: #00C9C8; 
+  transform: translateY(-4px); 
+  box-shadow: 0 10px 20px rgba(0, 201, 200, 0.1);
+}
+
+.job-tag { 
+  background: rgba(0,201,200,0.1); 
+  color: #00C9C8; 
+  padding: 6px 10px; 
+  border-radius: 6px; 
+  font-size: 12px;
+  font-weight: 600;
+}
+
+/* Tracker Pipeline */
+.tracker-pipeline { 
+  display: flex; 
+  justify-content: space-between; 
+  margin-top: 20px; 
+  padding-top: 20px; 
+  border-top: 1px solid rgba(255,255,255,0.1); 
+}
+
+.track-step { 
+  font-size: 11px; 
+  color: #555; 
+  display: flex; 
+  flex-direction: column; 
+  align-items: center; 
+  gap: 8px; 
+}
+
+.track-step.active { 
+  color: #10b981; 
+  font-weight: bold; 
+}
+
+.track-dot { 
+  width: 14px; 
+  height: 14px; 
+  border-radius: 50%; 
+  background: #333; 
+  border: 2px solid #080815;
+}
+
+.track-step.active .track-dot { 
+  background: #10b981; 
+  box-shadow: 0 0 10px rgba(16, 185, 129, 0.5); 
+}
+
+/* --- AI AVATAR STUDIO STYLES --- */
+.tutor-layout { 
+  display: flex; 
+  gap: 25px; 
+  height: 100%; 
+}
+
+.avatar-screen {
+  flex: 1; 
+  background: #000; 
+  border-radius: 12px; 
+  position: relative;
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+  overflow: hidden;
+  border: 1px solid #333;
+}
+
+.mock-avatar { 
+  width: 100%; 
+  height: 100%; 
+  object-fit: cover; 
+  opacity: 0.6; 
+}
+
+.subtitles { 
+  position: absolute; 
+  bottom: 30px; 
+  width: 85%; 
+  text-align: center; 
+  font-size: 20px; 
+  font-weight: 600; 
+  line-height: 1.5;
+  text-shadow: 0px 2px 10px rgba(0,0,0,0.8); 
+  background: rgba(0,0,0,0.5);
+  padding: 15px 20px;
+  border-radius: 12px;
+  border-left: 4px solid #7B5CFA;
+}
+
+.tutor-controls { 
+  width: 350px; 
+  background: rgba(255,255,255,0.02); 
+  padding: 25px; 
+  border-radius: 12px; 
+  display: flex; 
+  flex-direction: column; 
+  gap: 15px; 
+  border: 1px solid rgba(255,255,255,0.05);
+}
+
+.mic-interrupt-btn {
+  color: #fff; 
+  border: none; 
+  padding: 18px; 
+  border-radius: 50px;
+  font-size: 15px; 
+  font-weight: bold; 
+  cursor: pointer; 
+  display: flex; 
+  justify-content: center; 
+  align-items: center; 
+  gap: 10px;
+  transition: 0.3s;
+}
+
+/* The glowing animation when the mic is listening */
+.mic-interrupt-btn.listening {
+  background: #ef4444 !important;
+  animation: pulse-red 2s infinite;
+}
+
+@keyframes pulse-red { 
+  0% { box-shadow: 0 0 0 0 rgba(239,68,68,0.5); } 
+  70% { box-shadow: 0 0 0 15px rgba(239,68,68,0); } 
+  100% { box-shadow: 0 0 0 0 rgba(239,68,68,0); } 
+}

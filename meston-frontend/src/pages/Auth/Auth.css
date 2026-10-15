@@ -1,0 +1,381 @@
+.auth-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: #080815;
+  position: relative;
+  overflow: hidden;
+}
+
+/* ── ORBS ── */
+.auth-orb {
+  position: fixed;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.2;
+  pointer-events: none;
+  z-index: 0;
+}
+.orb1 {
+  width: 500px;
+  height: 500px;
+  background: #7B5CFA;
+  top: -150px;
+  left: -100px;
+}
+.orb2 {
+  width: 400px;
+  height: 400px;
+  background: #00C9C8;
+  bottom: -100px;
+  right: -80px;
+}
+.orb3 {
+  width: 300px;
+  height: 300px;
+  background: #FA5C7B;
+  bottom: 150px;
+  left: 200px;
+}
+
+/* ── GRID ── */
+.auth-grid {
+  position: fixed;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(123,92,250,0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(123,92,250,0.07) 1px, transparent 1px);
+  background-size: 60px 60px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ── CARD ── */
+.auth-card {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 440px;
+  background: rgba(16, 14, 38, 0.97);
+  /* FIX: stronger border — was 0.25 opacity, now 0.6 so it's clearly visible */
+  border: 1.5px solid rgba(123, 92, 250, 0.6);
+  border-radius: 24px;
+  padding: 40px 36px;
+  backdrop-filter: blur(24px);
+  /* FIX: stronger glow so card separates from background */
+  box-shadow: 
+    0 0 0 1px rgba(123,92,250,0.1),
+    0 0 60px rgba(123,92,250,0.25),
+    0 24px 80px rgba(0,0,0,0.8);
+}
+
+/* ── LOGO ── */
+.auth-logo {
+  font-family: 'Syne', sans-serif;
+  font-size: 32px;
+  font-weight: 800;
+  text-align: center;
+  letter-spacing: 6px;
+  color: #ffffff;
+  margin-bottom: 4px;
+}
+.auth-logo span {
+  color: #7B5CFA;
+}
+.auth-tagline {
+  text-align: center;
+  font-size: 11px;
+  letter-spacing: 3px;
+  /* FIX: was 0.4 opacity — bumped to 0.75 so it's readable */
+  color: rgba(0,201,200,0.85);
+  margin-bottom: 28px;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+/* ── TABS ── */
+.auth-tabs {
+  display: flex;
+  background: rgba(255,255,255,0.04);
+  border-radius: 12px;
+  padding: 4px;
+  margin-bottom: 28px;
+  gap: 4px;
+  /* FIX: visible border around tab container */
+  border: 1px solid rgba(123,92,250,0.35);
+}
+
+/* FIX: Active tab — solid purple, always visible */
+.auth-tab-active {
+  flex: 1;
+  border: none;
+  border-radius: 9px;
+  padding: 11px;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  text-align: center;
+  display: block;
+  text-decoration: none;
+  /* SOLID — never transparent */
+  background: #7B5CFA;
+  color: #ffffff;
+  box-shadow: 0 4px 14px rgba(123,92,250,0.5);
+  line-height: 1.4;
+}
+
+/* FIX: Inactive tab — was transparent+faint, now has visible bg and bright text */
+.auth-tab-inactive {
+  flex: 1;
+  border-radius: 9px;
+  padding: 11px;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  text-align: center;
+  display: block;
+  text-decoration: none;
+  /* FIX: solid semi-transparent bg + bright text — no more invisible button */
+  background: rgba(255,255,255,0.08);
+  color: #ffffff;
+  border: 1px solid rgba(123,92,250,0.3);
+  line-height: 1.4;
+  transition: all 0.2s;
+}
+.auth-tab-inactive:hover {
+  background: rgba(123,92,250,0.15);
+  color: #ffffff;
+  border-color: rgba(123,92,250,0.55);
+}
+
+/* ── FIELDS ── */
+.auth-field {
+  margin-bottom: 16px;
+}
+.auth-field label {
+  display: block;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  /* FIX: was 0.5 opacity — now 0.8 so labels are readable */
+  color: rgba(255,255,255,0.8);
+  margin-bottom: 7px;
+  text-transform: uppercase;
+}
+.auth-input-wrap {
+  position: relative;
+}
+.auth-input-wrap input {
+  width: 100%;
+  /* FIX: slightly more visible input bg */
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(123, 92, 250, 0.35);
+  border-radius: 12px;
+  padding: 13px 16px;
+  font-size: 14px;
+  color: #ffffff;
+  outline: none;
+  transition: all 0.2s;
+  font-family: 'Inter', sans-serif;
+}
+.auth-input-wrap input:focus {
+  border-color: #7B5CFA;
+  background: rgba(123, 92, 250, 0.12);
+  box-shadow: 0 0 0 3px rgba(123,92,250,0.18);
+}
+.auth-input-wrap input::placeholder {
+  /* FIX: was 0.2 — now 0.45 so placeholder text is visible */
+  color: rgba(255,255,255,0.4);
+}
+.eye-toggle {
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: rgba(255,255,255,0.5);
+  display: flex;
+  align-items: center;
+  padding: 4px;
+  transition: color 0.2s;
+}
+.eye-toggle:hover {
+  color: #7B5CFA;
+}
+
+/* ── ERRORS ── */
+.field-error {
+  font-size: 12px;
+  color: #FF5E5E;
+  margin-top: 5px;
+  display: none;
+}
+.auth-error-box {
+  background: rgba(255,94,94,0.12);
+  border: 1px solid rgba(255,94,94,0.4);
+  border-radius: 10px;
+  padding: 11px 14px;
+  font-size: 13px;
+  color: #FF5E5E;
+  margin-bottom: 14px;
+  text-align: center;
+}
+
+/* ── MAIN BUTTON — always solid, always visible ── */
+.auth-btn {
+  display: block;
+  width: 100%;
+  border: none;
+  border-radius: 12px;
+  padding: 15px;
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  margin-top: 8px;
+  /* SOLID purple — never transparent, never hidden */
+  background: #7B5CFA;
+  color: #ffffff;
+  box-shadow: 0 6px 24px rgba(123,92,250,0.55);
+  transition: transform 0.15s, background 0.15s, box-shadow 0.15s;
+  letter-spacing: 0.3px;
+}
+.auth-btn:hover {
+  background: #6a4ee8;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(123,92,250,0.65);
+}
+.auth-btn:active {
+  transform: translateY(0);
+}
+.auth-btn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* ── STRENGTH BAR ── */
+.strength-bar {
+  height: 3px;
+  border-radius: 3px;
+  background: rgba(255,255,255,0.08);
+  margin-top: 8px;
+  overflow: hidden;
+}
+.strength-fill {
+  height: 100%;
+  border-radius: 3px;
+  transition: all 0.4s;
+  width: 0;
+}
+
+/* ── SOCIAL BUTTONS — FIX: visible border and text ── */
+.social-row {
+  display: flex;
+  gap: 10px;
+  margin-top: 16px;
+}
+.social-btn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  /* FIX: was rgba(255,255,255,0.1) border — now 0.3 so it's clearly visible */
+  border: 1px solid rgba(255,255,255,0.3);
+  /* FIX: was 0.05 bg — now 0.09 so button shape is visible */
+  background: rgba(255,255,255,0.09);
+  border-radius: 12px;
+  padding: 12px;
+  cursor: pointer;
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  /* FIX: was 0.7 opacity — now full white */
+  color: #ffffff;
+  transition: all 0.2s;
+}
+.social-btn:hover {
+  border-color: rgba(123,92,250,0.6);
+  background: rgba(123,92,250,0.12);
+}
+
+/* ── DIVIDER ── */
+.auth-divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 16px 0;
+  /* FIX: was 0.3 — now 0.55 so text is readable */
+  color: rgba(255,255,255,0.55);
+  font-size: 12px;
+}
+.auth-divider::before, .auth-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: rgba(255,255,255,0.12);
+}
+
+/* ── SWITCH TEXT ── */
+.auth-switch {
+  text-align: center;
+  margin-top: 18px;
+  font-size: 13px;
+  color: rgba(255,255,255,0.55);
+}
+.auth-switch a {
+  color: #7B5CFA;
+  text-decoration: none;
+  font-weight: 600;
+}
+.auth-switch a:hover {
+  color: #a98fff;
+}
+
+/* ── TERMS ── */
+.check-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin: 14px 0;
+}
+.check-row input {
+  width: 16px;
+  height: 16px;
+  accent-color: #7B5CFA;
+  cursor: pointer;
+  margin-top: 2px;
+  flex-shrink: 0;
+}
+.check-row label {
+  font-size: 12px;
+  color: rgba(255,255,255,0.6);
+  cursor: pointer;
+  line-height: 1.5;
+}
+.check-row label a {
+  color: #7B5CFA;
+}
+
+/* ── SPINNER ── */
+.spinner {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border: 2px solid rgba(255,255,255,0.3);
+  border-top-color: #ffffff;
+  border-radius: 50%;
+  animation: spin 0.6s linear infinite;
+  vertical-align: middle;
+  margin-right: 6px;
+}
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
